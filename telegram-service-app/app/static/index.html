@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Каталог услуг</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Каталог услуг</p>
+          <h1>Оформить заказ</h1>
+        </div>
+        <div id="userBadge" class="user-badge">Гость</div>
+      </header>
+
+      <main class="layout">
+        <section class="catalog-panel" aria-labelledby="catalogTitle">
+          <div class="section-head">
+            <h2 id="catalogTitle">Услуги</h2>
+            <div id="categoryTabs" class="tabs" aria-label="Категории"></div>
+          </div>
+          <div id="productGrid" class="product-grid"></div>
+        </section>
+
+        <section class="checkout-panel" aria-labelledby="checkoutTitle">
+          <div class="checkout-card">
+            <div class="checkout-head">
+              <span class="checkout-mark">Заявка</span>
+              <span id="paymentState" class="status-pill">Оплата позже</span>
+            </div>
+            <h2 id="checkoutTitle">Выберите услугу</h2>
+            <p id="selectedDescription" class="muted">
+              После отправки заявки мы уточним детали и согласуем способ оплаты.
+            </p>
+
+            <div class="summary-row">
+              <span>Цена</span>
+              <strong id="selectedPrice">-</strong>
+            </div>
+            <div class="summary-row">
+              <span>Срок</span>
+              <strong id="selectedLeadTime">-</strong>
+            </div>
+
+            <label class="field-label" for="comment">Комментарий к работе</label>
+            <textarea
+              id="comment"
+              maxlength="2000"
+              rows="7"
+              placeholder="Тема, дедлайн, требования, пожелания и удобный способ связи"
+            ></textarea>
+            <div class="textarea-foot">
+              <span>Минимум 5 символов</span>
+              <span id="counter">0 / 2000</span>
+            </div>
+
+            <button id="submitOrder" class="primary-button" type="button" disabled>
+              Отправить заявку
+            </button>
+            <p id="formMessage" class="form-message" role="status"></p>
+          </div>
+
+          <div class="orders-card">
+            <div class="orders-head">
+              <h2>Мои заказы</h2>
+              <button id="refreshOrders" class="refresh-button" type="button">Обновить</button>
+            </div>
+            <div id="ordersList" class="orders-list">
+              <p class="empty-orders">Заказы появятся после оформления.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
